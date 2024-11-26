@@ -1,0 +1,21 @@
+/* Basis-Styles für die ToggleButton-Schalter */
+.toggle-button {
+    -fx-background-radius: 20;
+    -fx-background-color: lightgray;
+    -fx-padding: 5px;
+    -fx-pref-width: 50px;
+    -fx-pref-height: 25px;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #4caf50; /* Grün für 'An' Zustand */
+}
+
+.toggle-button .thumb {
+    -fx-translate-x: 8; /* Anfangsposition für 'Aus' */
+    -fx-translate-y: 8;
+}
+
+.toggle-button:selected .thumb {
+    -fx-translate-x: 33px; /* Verschiebung nach rechts für 'An' */
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fabian.fxstarter.MainController">
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+            <MenuItem fx:id="fileSettings" onAction="#openSettings" mnemonicParsing="false" text="settings" />
+            <MenuItem fx:id="fileClose" onAction="#closeApp" mnemonicParsing="false" text="Close" />
+        </Menu>
+        <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
+            <MenuItem fx:id="helpAbout" mnemonicParsing="false" text="About" />
+        </Menu>
+    </MenuBar>
+
+    <Label fx:id="headerLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="stateLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="55.0" />
+
+    <Label fx:id="nameLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="75.0" />
+    <TextField fx:id="name" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="95.0" />
+
+    <Label fx:id="descLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
+    <TextArea fx:id="beschreibung" prefHeight="90.0" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="145.0" />
+
+    <Label fx:id="amountLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="240.0" />
+    <Spinner fx:id="menge" editable="true" prefHeight="25.0" prefWidth="115.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="260.0" />
+
+    <Label fx:id="priceLbl" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="240.0" />
+    <Spinner fx:id="preis" editable="true" prefHeight="25.0" prefWidth="115.0" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="260.0" />
+
+    <Label fx:id="stockLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="290.0" />
+    <DatePicker fx:id="imBestandSeit" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="310.0" />
+
+    <Label fx:id="expiryLbl" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="340.0" />
+    <DatePicker fx:id="verfallsdatum" prefHeight="25.0" prefWidth="245.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="360.0" />
+
+    <TableView fx:id="product_table" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0">
+    <columns>
+        <TableColumn fx:id="table_name" prefWidth="75.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="name" />
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="table_desc" prefWidth="140.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="beschreibung" />
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="table_amount" prefWidth="75.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="menge" />
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="table_price" prefWidth="75.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="preis" />
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="table_expiry" prefWidth="100.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="verfallsdatum" />
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="table_inv_date" prefWidth="110.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="imBestandSeit" />
+            </cellValueFactory>
+        </TableColumn>
+    </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+
+    <Button fx:id="resetBtn" layoutX="16.0" layoutY="424.0" mnemonicParsing="false" onAction="#clear" prefHeight="30.0" prefWidth="75.0" AnchorPane.leftAnchor="15.0" />
+    <Button fx:id="editBtn" layoutX="95.0" layoutY="470.0" mnemonicParsing="false" onAction="#edit" prefHeight="30.0" prefWidth="75.0" AnchorPane.leftAnchor="100.0" />
+    <Button fx:id="saveBtn" layoutX="17.0" layoutY="470.0" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="75.0" AnchorPane.leftAnchor="15.0" />
+    <Button fx:id="deleteBtn" layoutX="95.0" layoutY="424.0" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="75.0" AnchorPane.leftAnchor="100.0" />
+
+    <Label fx:id="excelLbl" layoutX="190.0" layoutY="407.0" />
+    <Button fx:id="excelImportBtn" layoutX="190.0" layoutY="425.0" mnemonicParsing="false" onAction="#importFromExcel" prefHeight="30.0" prefWidth="75.0" AnchorPane.leftAnchor="185.0" />
+    <Button fx:id="excelExportBtn" layoutX="190.0" layoutY="471.0" mnemonicParsing="false" onAction="#exportToExcel" prefHeight="30.0" prefWidth="75.0" AnchorPane.leftAnchor="185.0" />
+</AnchorPane>
